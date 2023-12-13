@@ -6,7 +6,7 @@ import 'models/client_type.dart';
 import 'models/types.dart';
 import 'pages/clients_page.dart';
 
-void main(List<String> args, Key providerKey) {
+void main({List<String>? args = const [], Key? providerKey = const Key('')}) {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => Clients(clients: [])),
     ChangeNotifierProvider(
