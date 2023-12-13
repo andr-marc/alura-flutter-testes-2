@@ -6,17 +6,17 @@ import 'models/client_type.dart';
 import 'models/types.dart';
 import 'pages/clients_page.dart';
 
-void main() {
+void main(List<String> args, Key providerKey) {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => Clients(clients: [])),
-    ChangeNotifierProvider(create: (context) => Types(types: [
-      ClientType(name: 'Platinum', icon: Icons.credit_card),
-      ClientType(name: 'Golden', icon: Icons.card_membership),
-      ClientType(name: 'Titanium', icon: Icons.credit_score),
-      ClientType(name: 'Diamond', icon: Icons.diamond),
-    ]))
-  ],
-  child: const MyApp()));
+    ChangeNotifierProvider(
+        create: (context) => Types(types: [
+              ClientType(name: 'Platinum', icon: Icons.credit_card),
+              ClientType(name: 'Golden', icon: Icons.card_membership),
+              ClientType(name: 'Titanium', icon: Icons.credit_score),
+              ClientType(name: 'Diamond', icon: Icons.diamond),
+            ]))
+  ], child: MyApp(key: providerKey)));
 }
 
 class MyApp extends StatelessWidget {
